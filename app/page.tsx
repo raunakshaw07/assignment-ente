@@ -64,7 +64,7 @@ export default function Home() {
         <p className='text-lg font-semibold'>Powered By : Reddit API</p>
       </div>
       <Gallery>
-        <div className='gallery mt-24 max-w-7xl mx-auto'>
+        <div className='mt-24 max-w-7xl mx-auto lg:columns-4 md:columns-3 sm:columns-2 xs:columns-1'>
           {typeof window !== 'undefined' && images.length > 0 && images.map((img, index) => (
             <Item
               key={index}
