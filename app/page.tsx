@@ -63,32 +63,30 @@ export default function Home() {
         <p className='text-7xl text-center font-bold tracking-wider mb-8'>Memes Gallery</p>
         <p className='text-lg font-semibold'>Powered By : Reddit API</p>
       </div>
-      <div className='gallery mt-24 max-w-7xl mx-auto'>
-        {typeof window !== 'undefined' && (
-          <Gallery>
-            {images.length > 0 && images.map((img, index) => (
-              <Item
-                key={index}
-                original={img.data.url_overridden_by_dest}
-                thumbnail={img.data.thumbnail}
-                height='800'
-                width='800'
-              >
-                {({ ref, open }) => (
-                  <div className="cursor-pointer" onClick={open} key={index}>
-                    <img
-                      ref={ref}
-                      src={img.data.thumbnail}
-                      alt={`Image ${index}`}
-                      className="w-full h-auto transition-transform transform hover:scale-105 m-8"
-                    />
-                  </div>
-                )}
-              </Item>
-            ))}
-          </Gallery>
-        )}
-      </div>
+      <Gallery>
+        <div className='gallery mt-24 max-w-7xl mx-auto'>
+          {typeof window !== 'undefined' && images.length > 0 && images.map((img, index) => (
+            <Item
+              key={index}
+              original={img.data.url_overridden_by_dest}
+              thumbnail={img.data.thumbnail}
+              height='800'
+              width='800'
+            >
+              {({ ref, open }) => (
+                <div className="cursor-pointer" onClick={open} key={index}>
+                  <img
+                    ref={ref}
+                    src={img.data.thumbnail}
+                    alt={`Image ${index}`}
+                    className="w-full h-auto transition-transform transform hover:scale-105 m-8"
+                  />
+                </div>
+              )}
+            </Item>
+          ))}
+        </div>
+      </Gallery>
 
       {loading && <div className="text-center mt-4"> <Loader /> </div>}
     </main>
